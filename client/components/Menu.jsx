@@ -15,7 +15,7 @@ const subMenuData = [
     { id: 4, name: "Football shoes", doc_count: 107 },
 ];
 
-const Menu = () => {
+const Menu = ({showCatMenu,setShowCatMenu}) => {
   return (
     <ul className='hidden md:flex items-center gap-8 font-medium text-black'>
     {
@@ -24,7 +24,31 @@ const Menu = () => {
                 <>
                  <React.Fragment key={item.id}>
                     {
-                        !!item?.subMenu ? "Submenu" :
+                        !!item?.subMenu ? (<>
+                        <li className="cursor-pointer flex items-center gap-2 relative"
+                        onMouseEnter={()=>setShowCatMenu(true)}
+                        onMouseLeave={()=>setShowCatMenu(false)}>
+                            {item.name}
+                            <BsChevronDown size={14}/>
+                            {showCatMenu && (
+                                <>
+                                <ul className='bg-white absolute top-6 left-0 min-w-[250px] px-1 py-1 text-black shadow-lg'>
+                                {subMenuData.map((submenu)=>{
+                                    return (
+                                        <Link key={submenu.id} href="/" onClick={()=>setShowCatMenu(false)}>
+                                            <li className="h-12 flex justify-between items-center px-3 hover:bg-black/[0.03] rounded-md">
+                                                {submenu.name}
+                                                <span className='opacity-50 text-sm'>78</span>
+                                            </li>
+
+                                        </Link>
+                                    )
+                                })}
+                                </ul>
+                                </>
+                            )}
+                        </li>
+                        </>) :
                         (
                             <>
                             <Link href={item?.url}>
