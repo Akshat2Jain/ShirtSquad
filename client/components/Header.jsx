@@ -14,6 +14,25 @@ const Header = () => {
   const [showCatMenu, setShowCatMenu] = useState(false);
   const [show, setShow] = useState("transalate-y-0");
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const controlNavbar = () => {
+    if (window.scrollY > 200) {
+      if (window.scrollY > lastScrollY && !mobileMenu) {
+        setShow("-transalate-y-[80px]");
+      } else {
+        setShow("transalate-y-0");
+      }
+    } else {
+      setShow("transalate-y-0");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", controlNavbar);
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [lastScrollY]);
   return (
     <header
       className={`w-full h-[50px] md:h-[80px] bg-white flex items-center justify-between z-20 sticky top-0 transition-transform duration-300${show}`}
@@ -23,13 +42,13 @@ const Header = () => {
           <img src="./logo.svg" className="w-[40px] md:w-[60px]" />
         </Link>
         <Menu showCatMenu={showCatMenu} setShowCatMenu={setShowCatMenu} />
-       {
-        mobileMenu &&  <MobileMenu
-        showCatMenu={showCatMenu}
-        setShowCatMenu={setShowCatMenu}
-        setMobileMenu={setMobileMenu}
-      />
-       }
+        {mobileMenu && (
+          <MobileMenu
+            showCatMenu={showCatMenu}
+            setShowCatMenu={setShowCatMenu}
+            setMobileMenu={setMobileMenu}
+          />
+        )}
         <div className="flex items-center gap-2 text-black">
           {/* 1st Icon */}
           <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">
