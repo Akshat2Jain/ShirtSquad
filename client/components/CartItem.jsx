@@ -23,6 +23,38 @@ const CartItem = () => {
             MRP : 1900
           </div>
         </div>
+        {/* Product subtitle */}
+        <div className="text-md font-medium text-black/[0.5] hidden md:block">
+          Men&apos;s Golf Shoes
+        </div>
+        {/* Size */}
+        <div className="flex items-center justify-between mt-4">
+          <div className="flex items-center gap-2 md:gap-10 text-black/[0.5] text-sm md:text-md">
+            <div className="flex items-center gap-1">
+              <div className="font-semibold">Size</div>
+              <select className="hover:text-black">
+                <option value="1">UK6</option>
+                <option value="1">UK6</option>
+                <option value="1">UK6</option>
+                <option value="1">UK6</option>
+                <option value="1">UK6</option>
+                <option value="1">UK6</option>
+              </select>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="font-semibold">Quantity</div>
+              <select className="hover:text-black">
+                <option value="1">1</option>
+                <option value="1">2</option>
+                <option value="1">3</option>
+                <option value="1">4</option>
+                <option value="1">5</option>
+                <option value="1">6</option>
+              </select>
+            </div>
+          </div>
+          <RiDeleteBin6Line className="cursor-pointer text-black/[0.5] hover:text-black text-[16px] md:text-[20px]" />
+        </div>
       </div>
     </div>
   );
