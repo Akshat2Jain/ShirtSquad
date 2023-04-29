@@ -8,6 +8,7 @@ import { BsCart } from "react-icons/bs";
 import { BiMenuAltRight } from "react-icons/bi";
 import { VscChromeClose } from "react-icons/vsc";
 import MobileMenu from "./MobileMenu";
+import Image from "next/image";
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -39,7 +40,7 @@ const Header = () => {
     >
       <Wrapper className="h-[60px] flex justify-between items-center">
         <Link href="/">
-          <img src="./logo.svg" className="w-[40px] md:w-[60px]" alt="logo" />
+          <img src="./logo1.png" className="w-[40px] md:w-[60px]" alt="logo" />
         </Link>
         <Menu showCatMenu={showCatMenu} setShowCatMenu={setShowCatMenu} />
         {mobileMenu && (
