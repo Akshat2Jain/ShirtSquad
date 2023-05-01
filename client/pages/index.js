@@ -16,8 +16,7 @@ export default function Home() {
             </div>
             <div className="text-md md:text-xl">
               A lightweight Niko ZoomX midsole is combined with increased stack
-              heights to help provide cushioning during extended streches of
-              running
+              heights to help provide cushioning 
             </div>
           </div>
           {/* Heading and caption section ends */}
