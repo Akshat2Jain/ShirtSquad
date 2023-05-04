@@ -3,27 +3,32 @@ import React from "react";
 import ProductCrousel from "@/components/ProductCrousel";
 import { IoMdHeartEmpty } from "react-icons/io";
 import RelatedProduct from "@/components/RelatedProduct";
+import { fetchDataFromApi } from "@/utils/api";
 
-const ProductDetails = () => {
+const ProductDetails = (product, products) => {
+  // console.log(product);
+  const p = product?.product?.data?.[0]?.attributes?.image?.data;
+  const pname=product?.product?.data?.[0]?.attributes;
+  console.log(pname);
   return (
     <div className="w-full md:py-20">
       <Wrapper>
         <div className="flex flex-col lg:flex-row md:px-10 gap-[50px] lg:gap-[100px]">
           {/* Left coloumn starts */}
           <div className="w-full md:w-auto flex-[1.5] max-w-[500px] lg:max-w-full mx-auto lg:mx-0">
-            <ProductCrousel />
+            <ProductCrousel images={p}/>
           </div>
           {/* Right column starts */}
           <div className="flex-[1] py-3">
             {/* Product title */}
-            <div className="text-[34px] font-semibold">Jordan Retro 6 G</div>
+            <div className="text-[34px] font-semibold">{pname.name}</div>
             {/* Product Subtitle */}
             <div className="text-lg font-semibold mb-5">
-              Men&apos;'s Golf Shoes
+              {pname.subtitle}
             </div>
             {/* Product Price */}
 
-            <div className="text-lg font-semibold">MRP : 19655.69</div>
+            <div className="text-lg font-semibold">{pname.price}</div>
 
             {/*  tagline */}
             <div className="text-md font-medium text-black/[0.5]">
@@ -79,11 +84,7 @@ const ProductDetails = () => {
               <div>
                 <div className="text-lg font-bold mb-5">Product Details</div>
                 <div className="text-md mb-5">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-                  dignissimos animi sint accusantium similique itaque,
-                  laudantium maxime numquam excepturi necessitatibus obcaecati,
-                  labore quidem illo ducimus praesentium, repellat quasi
-                  eligendi fugiat.
+                  {pname.description}
                 </div>
                 <div className="text-md mb-5">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
@@ -96,10 +97,40 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
-        <RelatedProduct />
+        {/* <RelatedProduct /> */}
       </Wrapper>
     </div>
   );
 };
 
 export default ProductDetails;
+
+export async function getStaticPaths() {
+  const products = await fetchDataFromApi("/api/products?populate=*");
+  const paths = products?.data?.map((p) => ({
+      params: {
+          slug: p.attributes.slug,
+      },
+  }));
+
+  return {
+      paths,
+      fallback: false,
+  };
+}
+
+export async function getStaticProps({ params: { slug } }) {
+  const product = await fetchDataFromApi(
+    `/api/products?populate=*&filters[slug][$eq]=${slug}`
+  );
+  const products = await fetchDataFromApi(
+    `/api/products?populate=*&[filters][slug][$ne]=${slug}`
+  );
+
+  return {
+    props: {
+      product,
+      products,
+    },
+  };
+}
