@@ -69,7 +69,7 @@ const ProductDetails = (product, products) => {
               {/* Sizes end */}
               {/* warning on choosing any size */}
               <div className="text-red-600 mt-1">
-                Size selection is required
+                Size selection is required for you to buy this product
               </div>
               {/* Buy buttion */}
               <button className="w-full py-4 rounded-full bg-black text-white text-lg font-meduium transition-transform active:scale-95 mb-3 hover:opacity-75 ">
