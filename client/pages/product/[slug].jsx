@@ -1,14 +1,18 @@
 import Wrapper from "@/components/Wrapper";
-import React from "react";
+import React, { useState } from "react";
 import ProductCrousel from "@/components/ProductCrousel";
 import { IoMdHeartEmpty } from "react-icons/io";
 import RelatedProduct from "@/components/RelatedProduct";
 import { fetchDataFromApi } from "@/utils/api";
+import { getDiscountedPrecentage } from "@/utils/helper";
+import ReactMarkdown from "react-markdown";
 
 const ProductDetails = (product, products) => {
+  const [selectedSize, setSelectedSize] = useState();
+  const [showError, setShowError] = useState(false);
   // console.log(product);
   const p = product?.product?.data?.[0]?.attributes?.image?.data;
-  const pname=product?.product?.data?.[0]?.attributes;
+  const pname = product?.product?.data?.[0]?.attributes;
   console.log(pname);
   return (
     <div className="w-full md:py-20">
@@ -16,19 +20,33 @@ const ProductDetails = (product, products) => {
         <div className="flex flex-col lg:flex-row md:px-10 gap-[50px] lg:gap-[100px]">
           {/* Left coloumn starts */}
           <div className="w-full md:w-auto flex-[1.5] max-w-[500px] lg:max-w-full mx-auto lg:mx-0">
-            <ProductCrousel images={p}/>
+            <ProductCrousel images={p} />
           </div>
           {/* Right column starts */}
           <div className="flex-[1] py-3">
             {/* Product title */}
             <div className="text-[34px] font-semibold">{pname.name}</div>
             {/* Product Subtitle */}
-            <div className="text-lg font-semibold mb-5">
-              {pname.subtitle}
-            </div>
+            <div className="text-lg font-semibold mb-5">{pname.subtitle}</div>
             {/* Product Price */}
 
-            <div className="text-lg font-semibold">{pname.price}</div>
+            {/* <div className="text-lg font-semibold">&#8377;{pname.price}</div> */}
+            <div className="flex items-center">
+              <p className="mr-2 text-lg font-semibold">
+                MRP : &#8377;{pname.price}
+              </p>
+              {pname.original_price && (
+                <>
+                  <p className="text-base  font-medium line-through">
+                    &#8377;{pname.original_price}
+                  </p>
+                  <p className="ml-auto text-base font-medium text-green-500">
+                    {getDiscountedPrecentage(pname.original_price, pname.price)}
+                    % off
+                  </p>
+                </>
+              )}
+            </div>
 
             {/*  tagline */}
             <div className="text-md font-medium text-black/[0.5]">
@@ -41,38 +59,44 @@ const ProductDetails = (product, products) => {
             <div className="mb-10">
               <div className="flex justify-between mb-2">
                 <div className="text-md font-semibold">Select Size</div>
-                <div className="text-md font-medium text-black/[0.5] cursor-pointer">
-                  Select Guide
-                </div>
               </div>
               {/* Size start */}
-              <div className="grid grid-cols-3 gap-2">
-                <div className="border rounded-md text-center py-3 font-medium hover:border-black cursor-pointer">
-                  Uk6
-                </div>
-                <div className="border rounded-md text-center py-3 font-medium hover:border-black cursor-pointer">
-                  Uk6
-                </div>
-                <div className="border rounded-md text-center py-3 font-medium hover:border-black cursor-pointer">
-                  Uk6
-                </div>
-                <div className="border rounded-md text-center py-3 font-medium hover:border-black cursor-pointer">
-                  Uk6
-                </div>
-                <div className="border rounded-md text-center py-3 font-medium hover:border-black cursor-pointer">
-                  Uk6
-                </div>
-                <div className="border rounded-md text-center py-3 font-medium hover:border-black cursor-not-allowed bg-black/[0.1] opacity-50">
-                  Uk6
-                </div>
+              <div id="sizesGrid" className="grid grid-cols-3 gap-2">
+                {pname.size.data.map((item, i) => (
+                  <div
+                    key={i}
+                    className={`border rounded-md text-center py-3 font-medium ${
+                      item.enabled
+                        ? "hover:border-black cursor-pointer"
+                        : "cursor-not-allowed bg-black/[0.1] opacity-50"
+                    } ${selectedSize === item.size ? "border-black" : ""}`}
+                    onClick={() => {
+                      setSelectedSize(item.size);
+                      setShowError(false);
+                    }}
+                  >
+                    {item.size}
+                  </div>
+                ))}
+                {/* SHOW ERROR START */}
+                {showError && (
+                  <div className="text-red-600 mt-1">
+                    Size selection is required
+                  </div>
+                )}
               </div>
-              {/* Sizes end */}
-              {/* warning on choosing any size */}
-              <div className="text-red-600 mt-1">
-                Size selection is required for you to buy this product
-              </div>
-              {/* Buy buttion */}
-              <button className="w-full py-4 rounded-full bg-black text-white text-lg font-meduium transition-transform active:scale-95 mb-3 hover:opacity-75 ">
+              <button
+                className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mt-8 mb-3 hover:opacity-75"
+                onClick={() => {
+                  if (!selectedSize) {
+                    setShowError(true);
+                    document.getElementById("sizesGrid").scrollIntoView({
+                      block: "center",
+                      behavior: "smooth",
+                    });
+                  }
+                }}
+              >
                 Add to Cart
               </button>
               {/* Add to wishlist button */}
@@ -83,8 +107,8 @@ const ProductDetails = (product, products) => {
               {/* Product Desctription */}
               <div>
                 <div className="text-lg font-bold mb-5">Product Details</div>
-                <div className="text-md mb-5">
-                  {pname.description}
+                <div className="markdwon text-md mb-5">
+                <ReactMarkdown>{pname.description}</ReactMarkdown>
                 </div>
                 <div className="text-md mb-5">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
@@ -108,14 +132,14 @@ export default ProductDetails;
 export async function getStaticPaths() {
   const products = await fetchDataFromApi("/api/products?populate=*");
   const paths = products?.data?.map((p) => ({
-      params: {
-          slug: p.attributes.slug,
-      },
+    params: {
+      slug: p.attributes.slug,
+    },
   }));
 
   return {
-      paths,
-      fallback: false,
+    paths,
+    fallback: false,
   };
 }
 
