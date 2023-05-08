@@ -121,7 +121,7 @@ const ProductDetails = (product, products) => {
             </div>
           </div>
         </div>
-        <RelatedProduct products={products} />
+        <RelatedProduct />
       </Wrapper>
     </div>
   );
