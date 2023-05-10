@@ -13,7 +13,10 @@ const ProductDetails = (product, products) => {
   // console.log(product);
   const p = product?.product?.data?.[0]?.attributes?.image?.data;
   const pname = product?.product?.data?.[0]?.attributes;
-  console.log(pname);
+  const prds = product?.products?.data;
+  console.log(products)
+
+  // console.log(prds);
   return (
     <div className="w-full md:py-20">
       <Wrapper>
@@ -107,8 +110,8 @@ const ProductDetails = (product, products) => {
               {/* Product Desctription */}
               <div>
                 <div className="text-lg font-bold mb-5">Product Details</div>
-                <div className="markdwon text-md mb-5">
-                <ReactMarkdown>{pname.description}</ReactMarkdown>
+                <div className="markdown text-md mb-5">
+                  <ReactMarkdown>{pname.description}</ReactMarkdown>
                 </div>
                 <div className="text-md mb-5">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
@@ -121,7 +124,7 @@ const ProductDetails = (product, products) => {
             </div>
           </div>
         </div>
-        <RelatedProduct />
+        {/* <RelatedProduct products={prds} /> */}
       </Wrapper>
     </div>
   );
@@ -140,6 +143,7 @@ export async function getStaticPaths() {
   return {
     paths,
     fallback: false,
+    
   };
 }
 
