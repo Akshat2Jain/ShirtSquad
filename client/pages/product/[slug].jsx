@@ -14,7 +14,7 @@ const ProductDetails = (product, products) => {
   const p = product?.product?.data?.[0]?.attributes?.image?.data;
   const pname = product?.product?.data?.[0]?.attributes;
   const prds = product?.products?.data;
-  console.log(products)
+  // console.log(prds)
 
   // console.log(prds);
   return (
@@ -124,7 +124,7 @@ const ProductDetails = (product, products) => {
             </div>
           </div>
         </div>
-        {/* <RelatedProduct products={prds} /> */}
+        <RelatedProduct products={prds} />
       </Wrapper>
     </div>
   );
