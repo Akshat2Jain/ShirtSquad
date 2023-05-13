@@ -140,11 +140,7 @@ const ProductDetails = (product, products) => {
                   <ReactMarkdown>{pname.description}</ReactMarkdown>
                 </div>
                 <div className="text-md mb-5">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-                  dignissimos animi sint accusantium similique itaque,
-                  laudantium maxime numquam excepturi necessitatibus obcaecati,
-                  labore quidem illo ducimus praesentium, repellat quasi
-                  eligendi fugiat.
+                  This product gives you the experience of the emmese quality of the product
                 </div>
               </div>
             </div>
