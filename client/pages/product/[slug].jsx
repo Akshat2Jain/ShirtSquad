@@ -6,6 +6,8 @@ import RelatedProduct from "@/components/RelatedProduct";
 import { fetchDataFromApi } from "@/utils/api";
 import { getDiscountedPrecentage } from "@/utils/helper";
 import ReactMarkdown from "react-markdown";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "@/store/cartSlice";
 
 const ProductDetails = (product, products) => {
   const [selectedSize, setSelectedSize] = useState();
@@ -14,6 +16,7 @@ const ProductDetails = (product, products) => {
   const p = product?.product?.data?.[0]?.attributes?.image?.data;
   const pname = product?.product?.data?.[0]?.attributes;
   const prds = product?.products?.data;
+  const dispatch = useDispatch();
   // console.log(prds)
 
   // console.log(prds);
@@ -98,6 +101,8 @@ const ProductDetails = (product, products) => {
                       behavior: "smooth",
                     });
                   }
+                  dispatch(addToCart("hello"));
+                  // console.log("clicked")
                 }}
               >
                 Add to Cart
@@ -143,7 +148,6 @@ export async function getStaticPaths() {
   return {
     paths,
     fallback: false,
-    
   };
 }
 
