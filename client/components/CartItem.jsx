@@ -4,6 +4,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { updateCart, removeFromCart } from "@/store/cartSlice";
 import { useDispatch } from "react-redux";
 
+
 const CartItem = ({ data }) => {
   const p = data.attributes;
 
@@ -32,7 +33,7 @@ const CartItem = ({ data }) => {
             </div>
             {/* Product Price */}
             <div className="text-sm md:text-md font-bold text-black/[0.5] mt-2">
-              MRP : &#8377;{pname.price}
+              MRP : &#8377;{p.price}
             </div>
           </div>
           {/* Product subtitle */}
