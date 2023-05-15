@@ -9,7 +9,6 @@ const CartItem = ({ data }) => {
 
   return (
     <>
-      {console.log(p.thumbnail)}
       <div className="flex py-5 gap-3 md:gap-5 border-b">
         <div className="shrink-0 aspect-square w-[50px] md:w-[120px]">
           {/* <img src="p1.png" alt="img" /> */}
