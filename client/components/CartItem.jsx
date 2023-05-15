@@ -4,7 +4,6 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { updateCart, removeFromCart } from "@/store/cartSlice";
 import { useDispatch } from "react-redux";
 
-
 const CartItem = ({ data }) => {
   const p = data.attributes;
 
@@ -46,23 +45,42 @@ const CartItem = ({ data }) => {
               <div className="flex items-center gap-1">
                 <div className="font-semibold">Size</div>
                 <select className="hover:text-black">
+                  {p.size.data.map((item, i) => {
+                    return (
+                      <option
+                        key={i}
+                        value={item.size}
+                        disabled={!item.enabled ? true : false}
+                        selected={data.selectedSize === item.size}
+                      >
+                        {item.size}
+                      </option>
+                    );
+                  })}
+                  {/* <option value="1">UK6</option>
                   <option value="1">UK6</option>
                   <option value="1">UK6</option>
                   <option value="1">UK6</option>
                   <option value="1">UK6</option>
-                  <option value="1">UK6</option>
-                  <option value="1">UK6</option>
+                  <option value="1">UK6</option> */}
                 </select>
               </div>
               <div className="flex items-center gap-1">
                 <div className="font-semibold">Quantity</div>
                 <select className="hover:text-black">
-                  <option value="1">1</option>
+                  {Array.from({ length: 10 }, (_, i) => i + 1).map((q, i) => {
+                    return (
+                      <option key={i} value={q} selected={data.quantity === q}>
+                        {q}
+                      </option>
+                    );
+                  })}
+                  {/* <option value="1">1</option>
                   <option value="1">2</option>
                   <option value="1">3</option>
                   <option value="1">4</option>
                   <option value="1">5</option>
-                  <option value="1">6</option>
+                  <option value="1">6</option> */}
                 </select>
               </div>
             </div>
