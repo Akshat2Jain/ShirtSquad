@@ -1,9 +1,12 @@
+import Image from "next/image";
 import React from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import Image from "next/image";
+import { updateCart, removeFromCart } from "@/store/cartSlice";
+import { useDispatch } from "react-redux";
 
 const CartItem = ({ data }) => {
   const p = data.attributes;
+
   return (
     <>
       {console.log(p.thumbnail)}
