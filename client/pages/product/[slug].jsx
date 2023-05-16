@@ -11,14 +11,13 @@ import { addToCart } from "@/store/cartSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const ProductDetails = (product, products) => {
+const ProductDetails = ({ product, products }) => {
+  
+  
   const [selectedSize, setSelectedSize] = useState();
   const [showError, setShowError] = useState(false);
-  // console.log(product);
-  const p = product?.product?.data?.[0]?.attributes?.image?.data;
-  const pname = product?.product?.data?.[0]?.attributes;
-  const prds = product?.products?.data;
   const dispatch = useDispatch();
+  const p = product?.data?.[0]?.attributes;
   const notify = () => {
     toast("Success, Plz Check Your cart", {
       position: "top-right",
@@ -38,28 +37,28 @@ const ProductDetails = (product, products) => {
         <div className="flex flex-col lg:flex-row md:px-10 gap-[50px] lg:gap-[100px]">
           {/* Left coloumn starts */}
           <div className="w-full md:w-auto flex-[1.5] max-w-[500px] lg:max-w-full mx-auto lg:mx-0">
-            <ProductCrousel images={p} />
+            <ProductCrousel images={p.image.data} />
           </div>
           {/* Right column starts */}
           <div className="flex-[1] py-3">
             {/* Product title */}
-            <div className="text-[34px] font-semibold mb-2 leading-tight">{pname.name}</div>
+            <div className="text-[34px] font-semibold mb-2 leading-tight">{p.name}</div>
             {/* Product Subtitle */}
-            <div className="text-lg font-semibold mb-5">{pname.subtitle}</div>
+            <div className="text-lg font-semibold mb-5">{p.subtitle}</div>
             {/* Product Price */}
 
             {/* <div className="text-lg font-semibold">&#8377;{pname.price}</div> */}
             <div className="flex items-center">
               <p className="mr-2 text-lg font-semibold">
-                MRP : &#8377;{pname.price}
+                MRP : &#8377;{p.price}
               </p>
-              {pname.original_price && (
+              {p.original_price && (
                 <>
                   <p className="text-base  font-medium line-through">
-                    &#8377;{pname.original_price}
+                    &#8377;{p.original_price}
                   </p>
                   <p className="ml-auto text-base font-medium text-green-500">
-                    {getDiscountedPrecentage(pname.original_price, pname.price)}
+                    {getDiscountedPrecentage(p.original_price, p.price)}
                     % off
                   </p>
                 </>
@@ -80,7 +79,7 @@ const ProductDetails = (product, products) => {
               </div>
               {/* Size start */}
               <div id="sizesGrid" className="grid grid-cols-3 gap-2">
-                {pname.size.data.map((item, i) => (
+                {p.size.data.map((item, i) => (
                   <div
                     key={i}
                     className={`border rounded-md text-center py-3 font-medium ${
@@ -115,7 +114,7 @@ const ProductDetails = (product, products) => {
                   } else {
                     dispatch(
                       addToCart({
-                        ...product?.product?.data?.[0],
+                        ...product?.data?.[0],
                         selectedSize,
                         oneQuantityPrice:pname.price
                       })
@@ -137,7 +136,7 @@ const ProductDetails = (product, products) => {
               <div>
                 <div className="text-lg font-bold mb-5">Product Details</div>
                 <div className="markdown text-md mb-5">
-                  <ReactMarkdown>{pname.description}</ReactMarkdown>
+                  <ReactMarkdown>{p.description}</ReactMarkdown>
                 </div>
                 <div className="text-md mb-5">
                   This product gives you the experience of the emmese quality of the product
@@ -146,7 +145,7 @@ const ProductDetails = (product, products) => {
             </div>
           </div>
         </div>
-        <RelatedProduct products={prds} />
+        <RelatedProduct products={products} />
       </Wrapper>
     </div>
   );
