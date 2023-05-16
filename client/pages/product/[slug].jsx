@@ -99,7 +99,7 @@ const ProductDetails = (product, products) => {
                 {/* SHOW ERROR START */}
                 {showError && (
                   <div className="text-red-600 mt-1">
-                    Size selection is required
+                    Select Size
                   </div>
                 )}
               </div>
