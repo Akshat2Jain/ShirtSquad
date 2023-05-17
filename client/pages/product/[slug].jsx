@@ -116,7 +116,7 @@ const ProductDetails = ({ product, products }) => {
                       addToCart({
                         ...product?.data?.[0],
                         selectedSize,
-                        oneQuantityPrice:pname.price
+                        oneQuantityPrice:p.price
                       })
                     );
                     notify();
