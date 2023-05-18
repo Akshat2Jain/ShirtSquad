@@ -8,4 +8,4 @@ Go into the directory-> npm run dev
 
 A headless CMS architecture, content is created, stored, and organized in a back-end system, typically through a web interface or an API. The content is then delivered to various front-end applications or devices through APIs. This decoupling of the content management and presentation layers allows for greater flexibility, scalability, and reusability of content across multiple platforms and devices.
 
-Will take around 3 more days to complete 
+Will take around 1 more days to complete 
