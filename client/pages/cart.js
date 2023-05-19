@@ -57,15 +57,17 @@ const Cart = () => {
                 {cartItems.map((item) => (
                   <CartItem key={item.id} data={item} />
                 ))}
-                 <Link
-                  href="/"
-                  className="py-4 px-8 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 mt-8"
-                >
-                  Continue Shopping
-                </Link>
+                <span>
+                  {" "}
+                  <Link
+                    href="/"
+                    className="py-4 px-8 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 mt-8"
+                  >
+                    Continue Shopping
+                  </Link>
+                </span>
               </div>
               {/* CART ITEMS END */}
-              
 
               {/* SUMMARY START */}
               <div className="flex-[1]">
@@ -97,11 +99,8 @@ const Cart = () => {
                   {loading && <img src="/spinner.svg" alt="image" />}
                 </button>
                 {/* BUTTON END */}
-
-               
               </div>
               {/* SUMMARY END */}
-              
             </div>
             {/* CART CONTENT END */}
           </>
