@@ -57,8 +57,7 @@ const Cart = () => {
                 {cartItems.map((item) => (
                   <CartItem key={item.id} data={item} />
                 ))}
-                <span>
-                  {" "}
+                <span className="text-center mt-4">
                   <Link
                     href="/"
                     className="py-4 px-8 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 mt-8"
