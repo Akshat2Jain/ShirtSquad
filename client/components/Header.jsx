@@ -5,6 +5,7 @@ import Link from "next/link";
 import Menu from "./Menu";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { BsCart } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
 import { BiMenuAltRight } from "react-icons/bi";
 import { VscChromeClose } from "react-icons/vsc";
 import MobileMenu from "./MobileMenu";
@@ -78,6 +79,13 @@ const Header = () => {
             </div>
           </div> */}
           {/* 2nd Icon */}
+          <div style={{border:"1px  #000",display:"inline-block"}}>
+            <div style={{bgcolor:"transparent",border:"0",paddingRight:"3px"}}>
+            <input type="text" style={{marginRight:"0",marginTop:"5px"}} />
+            <button style={{ marginRight:"0",marginTop:"10px",fontSize:"1.2rem"}}><BsSearch/></button>
+            </div>
+            
+          </div>
           <Link href="/cart">
             <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">
               <BsCart className="text-[19px] md:text-[24px]" />
