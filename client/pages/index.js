@@ -7,7 +7,9 @@ import { fetchDataFromApi } from "@/utils/api";
 import { BsSearch } from "react-icons/bs";
 export default function Home({ products }) {
   const [filterData, setfilterData] = useState("");
-  console.log(filterData);
+  // console.log(filterData);
+  console.log(products);
+
   // const [data, setData] = useState(null);
   // useEffect(() => {
   //   fetchProducts();
@@ -17,7 +19,7 @@ export default function Home({ products }) {
   //   setData(data);
   //   console.log(data)
   // };
-  // console.log(products.data.[0].attributes.name
+  // console.log(products.data.[0].attributes.name)
 
   return (
     <>
@@ -43,6 +45,16 @@ export default function Home({ products }) {
                 borderWidth: "2px",
               }}
             >
+              <button
+                style={{
+                  marginLeft: "0.5rem",
+                  marginTop: "10px",
+                  fontSize: "1.2rem",
+                  paddingRight: "0.5rem",
+                }}
+              >
+                <BsSearch />
+              </button>
               <input
                 type="text"
                 style={{
@@ -58,23 +70,31 @@ export default function Home({ products }) {
                   setfilterData(e.target.value);
                 }}
               />
-              <button
-                style={{
-                  marginRight: "0",
-                  marginTop: "10px",
-                  fontSize: "1.2rem",
-                  paddingRight: "0.5rem",
-                }}
-              >
-                <BsSearch />
-              </button>
             </div>
           </div>
           {/* Heading and caption section ends */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-14 px-5 md:px-6">
-            {products?.data?.map((product) => (
+            {products?.data
+              ?.filter((product) => {
+                if (filterData === "") {
+                  return product;
+                } else if (
+                  product?.attributes?.name
+                    .toLowerCase()
+                    .includes(filterData.toLowerCase()) ||
+                  product?.attributes?.categories?.data?.attributes?.name
+                    .toLowerCase()
+                    .includes(filterData.toLowerCase())
+                ) {
+                  return product;
+                }
+              })
+              .map((product) => (
+                <ProductCard key={product?.id} data={product} />
+              ))}
+            {/* {products?.data?.map((product) => (
               <ProductCard key={product?.id} data={product} />
-            ))}
+            ))} */}
             {/* <ProductCard />
             <ProductCard />
             <ProductCard />
