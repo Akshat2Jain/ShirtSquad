@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import Wrapper from "./Wrapper";
 import Link from "next/link";
 import Menu from "./Menu";
-import { IoMdHeartEmpty } from "react-icons/io";
+
 import { BsCart } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
 import { BiMenuAltRight } from "react-icons/bi";
 import { VscChromeClose } from "react-icons/vsc";
 import MobileMenu from "./MobileMenu";
-import Image from "next/image";
+
 import { fetchDataFromApi } from "@/utils/api";
 import { useSelector } from "react-redux";
 
