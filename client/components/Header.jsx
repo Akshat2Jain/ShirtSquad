@@ -19,7 +19,7 @@ const Header = () => {
   const [show, setShow] = useState("transalate-y-0");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [categories, setCategories] = useState(null);
-  const [fliterData,setfilterData]=useState("");
+  const [fliterData, setfilterData] = useState("");
 
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -80,12 +80,23 @@ const Header = () => {
             </div>
           </div> */}
           {/* 2nd Icon */}
-          <div style={{border:"1px  #000",display:"inline-block"}}>
-            <div style={{bgcolor:"transparent",border:"0"}}>
-            <input type="text" style={{marginRight:"0",marginTop:"5px"}} />
-            <button style={{ marginRight:"0",marginTop:"10px",fontSize:"1.2rem"}}><BsSearch/></button>
+          <div style={{ border: "1px  #000", display: "inline-block" }}>
+            <div style={{ bgcolor: "transparent", border: "0" }}>
+              <input
+                type="text"
+                style={{ marginRight: "0", marginTop: "5px" }}
+                onChange={(e) => setfilterData(e.target.value)}
+              />
+              <button
+                style={{
+                  marginRight: "0",
+                  marginTop: "10px",
+                  fontSize: "1.2rem",
+                }}
+              >
+                <BsSearch />
+              </button>
             </div>
-            
           </div>
           <Link href="/cart">
             <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">
