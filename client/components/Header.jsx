@@ -19,6 +19,7 @@ const Header = () => {
   const [show, setShow] = useState("transalate-y-0");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [categories, setCategories] = useState(null);
+  const [fliterData,setfilterData]=useState("");
 
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -80,7 +81,7 @@ const Header = () => {
           </div> */}
           {/* 2nd Icon */}
           <div style={{border:"1px  #000",display:"inline-block"}}>
-            <div style={{bgcolor:"transparent",border:"0",paddingRight:"3px"}}>
+            <div style={{bgcolor:"transparent",border:"0"}}>
             <input type="text" style={{marginRight:"0",marginTop:"5px"}} />
             <button style={{ marginRight:"0",marginTop:"10px",fontSize:"1.2rem"}}><BsSearch/></button>
             </div>
