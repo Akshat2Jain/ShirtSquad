@@ -81,9 +81,6 @@ export default function Home({ products }) {
                 } else if (
                   product?.attributes?.name
                     .toLowerCase()
-                    .includes(filterData.toLowerCase()) ||
-                  product?.attributes?.categories?.data?.attributes?.name
-                    .toLowerCase()
                     .includes(filterData.toLowerCase())
                 ) {
                   return product;
