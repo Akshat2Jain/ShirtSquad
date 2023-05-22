@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import { fetchDataFromApi } from "@/utils/api";
 import { BsSearch } from "react-icons/bs";
 export default function Home({ products }) {
+  const [filterData, setfilterData] = useState("");
+  console.log(filterData);
   // const [data, setData] = useState(null);
   // useEffect(() => {
   //   fetchProducts();
@@ -41,24 +43,31 @@ export default function Home({ products }) {
                 borderWidth: "2px",
               }}
             >
-              <div style={{ bgcolor: "transparent", border: "0" }}>
-                <input
-                  type="text"
-                  style={{ marginRight: "0", marginTop: "5px" }}
-                  placeholder="Search Products"
-                  id="inputID"
-                />
-                <button
-                  style={{
-                    marginRight: "0",
-                    marginTop: "10px",
-                    fontSize: "1.2rem",
-                    paddingRight:"0.5rem"
-                  }}
-                >
-                  <BsSearch />
-                </button>
-              </div>
+              <input
+                type="text"
+                style={{
+                  border: "1px  #000",
+                  display: "inline-block",
+
+                  borderWidth: "2px",
+                  height: "3rem",
+                  width: "10rem",
+                }}
+                placeholder="Search Products"
+                onChange={(e) => {
+                  setfilterData(e.target.value);
+                }}
+              />
+              <button
+                style={{
+                  marginRight: "0",
+                  marginTop: "10px",
+                  fontSize: "1.2rem",
+                  paddingRight: "0.5rem",
+                }}
+              >
+                <BsSearch />
+              </button>
             </div>
           </div>
           {/* Heading and caption section ends */}
