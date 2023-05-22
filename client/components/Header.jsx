@@ -19,8 +19,7 @@ export default function Header() {
   const [show, setShow] = useState("transalate-y-0");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [categories, setCategories] = useState(null);
-  const [fliterData, setfilterData] = useState("");
-  // console.log(products);
+  
 
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -86,7 +85,6 @@ export default function Header() {
               <input
                 type="text"
                 style={{ marginRight: "0", marginTop: "5px" }}
-                onChange={(e) => setfilterData(e.target.value)}
               />
               <button
                 style={{
