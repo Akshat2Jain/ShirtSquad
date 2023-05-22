@@ -15,6 +15,7 @@ export default function Home({ products }) {
   //   console.log(data)
   // };
   // console.log(products.data.[0].attributes.name)
+  
   return (
     <>
       <main>

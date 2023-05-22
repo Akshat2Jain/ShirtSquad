@@ -25,7 +25,7 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
       <Provider store={store}>
-        <Header />
+        <Header/>
         <Component {...pageProps} />
         <Footer />
       </Provider>

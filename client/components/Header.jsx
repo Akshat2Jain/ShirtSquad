@@ -13,13 +13,14 @@ import Image from "next/image";
 import { fetchDataFromApi } from "@/utils/api";
 import { useSelector } from "react-redux";
 
-const Header = () => {
+export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [showCatMenu, setShowCatMenu] = useState(false);
   const [show, setShow] = useState("transalate-y-0");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [categories, setCategories] = useState(null);
   const [fliterData, setfilterData] = useState("");
+  // console.log(products);
 
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -131,6 +132,4 @@ const Header = () => {
       </Wrapper>
     </header>
   );
-};
-
-export default Header;
+}
