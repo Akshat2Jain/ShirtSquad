@@ -36,8 +36,8 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         shipping_address_collection: { allowed_countries: ["IN"] },
         payment_method_types: ["card"],
         mode: "payment",
-        success_url: process.env.CLIENT_URL + `/success`,
-        cancel_url: process.env.CLIENT_URL + "/failed",
+        success_url: "https://shirtsquad.vercel.app/success",
+        cancel_url: "https://shirtsquad.vercel.app/failed",
         line_items: lineItems,
       });
 
