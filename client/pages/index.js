@@ -8,7 +8,7 @@ import { BsSearch } from "react-icons/bs";
 export default function Home({ products }) {
   const [filterData, setfilterData] = useState("");
   // console.log(filterData);
-  console.log(products);
+  // console.log(products);
 
   // const [data, setData] = useState(null);
   // useEffect(() => {
