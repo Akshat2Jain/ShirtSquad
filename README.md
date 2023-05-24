@@ -18,7 +18,7 @@ Welcome to our exciting and vibrant Ecommerce website! We are thrilled to have y
 
 - **Personalized Recommendations:** Discover new and exciting products tailored to your preferences. Our smart recommendation engine analyzes your browsing history and purchase behavior to offer personalized suggestions.
 
-- **Flexible Payment Options:** We support a variety of payment methods, allowing you to choose the option that suits you best. Rest assured, your transactions are safe and secure.
+- **Smooth & fast Payment:** We support a smooth  payment option, allowing you to choose the option that suits you best. Rest assured, your transactions are safe and secure.
 
 - **Responsive Customer Support:** Our dedicated customer support team is always ready to assist you. If you have any questions, concerns, or need assistance, feel free to reach out to us via email, phone, or live chat.
 
