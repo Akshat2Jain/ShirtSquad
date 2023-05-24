@@ -33,7 +33,7 @@ Welcome to our exciting and vibrant Ecommerce website! We are thrilled to have y
 
 - **Fast & Smooth UI:** With the help of Technology like nextjs and headless cms starpi we build a pretty fast Ecommerce website
 
-## Getting Started
+## Getting Started(NOT SERIOUS)
 
 To get started with our Ecommerce website, follow these simple steps:
 1. Visit our website -> [Visit](https://shirtsquad.vercel.app/).
