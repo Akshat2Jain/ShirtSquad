@@ -65,4 +65,4 @@ Overall, I have created an ecommerce website that combines the latest technologi
 
 Feel free to reach out to me if you have any questions or if you'd like to collaborate on any web development projects. Let's build something amazing together!
 
-
+[Connect](https://shirtsquad.vercel.app/contact)
