@@ -20,7 +20,7 @@ Welcome to our exciting and vibrant Ecommerce website! We are thrilled to have y
 
 - **Smooth & fast Payment:** We support a smooth  payment option, allowing you to choose the option that suits you best. Rest assured, your transactions are safe and secure.
 
-- **Responsive Customer Support:** Our dedicated customer support team is always ready to assist you. If you have any questions, concerns, or need assistance, feel free to reach out to us via email, phone, or live chat.
+- **Fast & Smooth UI:** With the help of Technology like nextjs and headless cms starpi we build a pretty fast Ecommerce website
 
 ## Getting Started
 
