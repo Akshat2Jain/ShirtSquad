@@ -45,4 +45,22 @@ To get started with our Ecommerce website, follow these simple steps:
 
 Thank you for choosing our Ecommerce website. We hope you have a fantastic shopping experience!
 
+## Let' Talk about the Tech
+
+**For the frontend**, I leveraged the power of Next.js, a powerful and flexible React framework that allowed me to build a fast, interactive, and SEO-friendly user interface. With **Next.js**, I ensured that the website loads quickly, provides smooth navigation, and delivers an exceptional user experience.
+
+To handle the content management system (CMS), I integrated **Strapi**, a headless CMS that provides a scalable and customizable solution for managing and delivering content. Strapi allowed me to efficiently organize and display product information, blog posts, and other relevant content on the website.
+
+For secure and seamless payment processing, I integrated **Stripe**, a widely trusted payment gateway. Stripe enabled smooth and secure transactions, ensuring a hassle-free checkout experience for customers.
+
+To create a visually appealing and responsive design, I utilized **Tailwind CSS**, a utility-first CSS framework. Tailwind CSS allowed me to quickly style the UI components, ensuring a consistent and visually pleasing look across different devices and screen sizes.
+
+To deploy the backend infrastructure, I used **Render**, a modern cloud platform that simplifies the deployment and scaling of web applications. Render's reliable infrastructure and easy-to-use interface ensured smooth backend operations and efficient handling of website traffic.
+
+For the frontend deployment, I chose **Vercel**, a powerful hosting platform for static and Jamstack websites. Vercel provided fast and reliable hosting, ensuring that the website is accessible to users worldwide with minimal latency.
+
+Overall, I have created an ecommerce website that combines the latest technologies, streamlined user experience, secure payments, and visually stunning design. I'm excited to share my passion for ecommerce and provide users with a memorable online shopping experience.
+
+Feel free to reach out to me if you have any questions or if you'd like to collaborate on any web development projects. Let's build something amazing together!
+
 
