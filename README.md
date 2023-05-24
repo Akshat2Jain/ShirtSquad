@@ -45,7 +45,7 @@ To get started with our Ecommerce website, follow these simple steps:
 
 Thank you for choosing our Ecommerce website. We hope you have a fantastic shopping experience!
 
-## Let' Talk about the Tech
+## Let' Talk about the Tech(MAIN TALK)
 
 **For the frontend**, I leveraged the power of Next.js, a powerful and flexible React framework that allowed me to build a fast, interactive, and SEO-friendly user interface. With **Next.js**, I ensured that the website loads quickly, provides smooth navigation, and delivers an exceptional user experience.
 
