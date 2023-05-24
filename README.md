@@ -26,12 +26,11 @@ Welcome to our exciting and vibrant Ecommerce website! We are thrilled to have y
 
 To get started with our Ecommerce website, follow these simple steps:
 1. Visit our website -> [Visit](https://shirtsquad.vercel.app/).
-2. Create an account or log in if you already have one.
-3. Browse through our wide range of products or use the search bar to find specific items.
-4. Add desired products to your cart and proceed to checkout.
-5. Select your preferred payment method and complete the transaction.
-6. Sit back, relax, and wait for your order to arrive.
-7. If you have any questions or need assistance, don't hesitate to contact our friendly customer support team.
+2. Browse through our wide range of products or use the search bar to find specific items.
+3. Add desired products to your cart and proceed to checkout.
+4. Select your card and complete the transaction.
+5. Sit back, relax, and wait for your order to arrive.
+6. If you have any questions or need assistance, don't hesitate to contact our friendly customer support team.
 
 Thank you for choosing our Ecommerce website. We hope you have a fantastic shopping experience!
 
