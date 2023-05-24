@@ -25,7 +25,7 @@ Welcome to our exciting and vibrant Ecommerce website! We are thrilled to have y
 ## Getting Started
 
 To get started with our Ecommerce website, follow these simple steps:
-1. Visit our website at [example.com](https://example.com).
+1. Visit our website -> [Visit](https://shirtsquad.vercel.app/).
 2. Create an account or log in if you already have one.
 3. Browse through our wide range of products or use the search bar to find specific items.
 4. Add desired products to your cart and proceed to checkout.
