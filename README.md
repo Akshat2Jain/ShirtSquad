@@ -20,8 +20,6 @@ Welcome to our exciting and vibrant Ecommerce website! We are thrilled to have y
 
 - **Flexible Payment Options:** We support a variety of payment methods, allowing you to choose the option that suits you best. Rest assured, your transactions are safe and secure.
 
-- **Order Tracking:** Stay updated on the status of your orders with our order tracking feature. You can easily track your package and know exactly when it will arrive at your doorstep.
-
 - **Responsive Customer Support:** Our dedicated customer support team is always ready to assist you. If you have any questions, concerns, or need assistance, feel free to reach out to us via email, phone, or live chat.
 
 ## Getting Started
