@@ -1,5 +1,7 @@
 # ShirtSqaud || [Visit](https://shirtsquad.vercel.app/)
 
+## [About Tech](https://github.com/Akshat2Jain/ShirtSquad#let-talk-about-the-techmain-talk)
+
 # Welcome to Our Ecommerce Website!
 
 ![Ecommerce Logo](https://shirtsquad.vercel.app/logo3.png)
